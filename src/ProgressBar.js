@@ -5,7 +5,7 @@ export default class ProgressBar extends HTMLElement {
         this.progress = 0;
         this.createProgressBar();
         this.startProgress();
-        // console.info(`START: ${new Date()} ${new Date().getMilliseconds()}`);
+        console.info(`START: ${new Date()} ${new Date().getMilliseconds()}`);
     }
 
     createProgressBar() {
@@ -32,13 +32,13 @@ export default class ProgressBar extends HTMLElement {
 
     startProgress() {
         if (this.progress === 100) {
-            // console.info(`END: ${new Date()} ${new Date().getMilliseconds()}`);
+            console.info(`END: ${new Date()} ${new Date().getMilliseconds()}`);
             return;
         }
         setTimeout(() => {
             this.setProgress(this.increment())
             this.startProgress();
-        }, (3 * 60000) / 10000);
+        }, 3000 / 100);
     }
 
     setProgress(progress) {
